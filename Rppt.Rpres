@@ -1,0 +1,92 @@
+<style>
+.small-code pre code {
+  font-size: 0.5em;
+}
+</style>
+<style>
+.reveal h1, .reveal h2, .reveal h3 {
+  word-wrap: normal;
+  -moz-hyphens: none;
+}
+</style>
+<style>
+.reveal ul, 
+.reveal ol {
+    font-size: 0.8em;
+    color: black;
+    list-style-type: square;
+}
+</style>
+
+
+Developing Data Products- Course Project
+========================================================
+author: Shruti Chandrika Vedurmudi
+date: September 12,2016
+autosize: false
+transition :rotate
+
+
+
+Mortgage Price Estimator
+========================================================
+class: small-code
+
+Mortgage Price Estimator is a Shiny-App for fulfillment of course requirements of the Data Science Specialization on Coursera.The data is taken from [Zillow](http://www.zillow.com/research/data/). A preview of the data can be seen below.
+```{r,eval=TRUE,echo=FALSE}
+data <- read.csv("C:\\Users\\Admin\\Downloads\\State_MedianValuePerSqft_AllHomes.csv");
+data2<- subset(data,select =-( X1996.04 : X2010.12));
+numericset<-subset(data2,select =-(1:3))
+rowavg<-rowMeans(numericset)
+finalset<-cbind(data2,rowavg)
+
+```
+```{r,echo=FALSE,eval=TRUE}
+head(finalset,n=5)
+```
+
+
+
+Mortage Price Estimator Contd....
+========================================================
+class:reveal-ol
+
+## The app has three pages -:
+
+- Average House Price Estimator
+- Monthly Mortgage Calculater
+- About or Help Page
+
+
+
+
+![test](Capture.png)
+
+***
+<span style ="font-size:1em;">**Average House price Estimator** takes a slider input of the desired square footage and the state to give an average house price in respect to the selections.It also displays an interactive United States of America graph where the shade of the state shows indicates the price per square footage.(higher the cost-darker the shade)</style>
+
+
+Mortage Price Estimator Contd....
+========================================================
+
+The **Monthly Mortgage Calculator** enables you to calculate your monthly mortgage.
+  
+
+![test2](Capture2.png)
+***
+The following inputs are needed for the calculation-:
+
+-House Price  
+-Downpayment  
+-Annual Percentage Rate  
+-Payment Term
+
+Mortage Price Estimator Contd....
+=====
+The **source data** can be downloaded from the application. The about page can be refrenced to navigate through the application.
+
+To learn more about Developing Shiny Apps visit the page http://shiny.rstudio.com/
+
+You can also enroll into the Data Science Certification Course- [Developing Data Products](https://www.coursera.org/learn/data-products/home/welcome) at Coursera
+
+<div style ="font-size:2em;color:red;text-align:center">Thank You</div>
